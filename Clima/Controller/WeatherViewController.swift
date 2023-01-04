@@ -6,11 +6,6 @@
 import UIKit
 
 class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
-    func didUpdateWeather(weather: WeatherModel) {
-        print(weather.cityName)
-        print(weather.temperatureString)
-        
-    }
     
 
     @IBOutlet weak var conditionImageView: UIImageView!
@@ -50,6 +45,16 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         }
         searchTextField.text=""
         
+    }
+    
+    func didUpdateWeather(_ weatherManager:WeatherManager, weather: WeatherModel) {
+        print(weather.cityName)
+        print(weather.temperatureString)
+        
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
     }
 }
 
